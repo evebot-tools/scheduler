@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/evebot-tools/#REPO#/internal"
-	"github.com/evebot-tools/libs/utils"
+	"github.com/evebot-tools/scheduler/internal"
+	"github.com/evebot-tools/utils"
 	"github.com/getsentry/sentry-go"
 	"github.com/rs/zerolog"
 )

@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: #APP#
+  name: scheduler
 spec:
   selector:
-    app: #APP#
+    app: scheduler
   ports:
   - port: 80
     targetPort: 3000

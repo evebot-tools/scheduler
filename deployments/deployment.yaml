@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: #APP#
+  name: scheduler
 spec:
   selector:
     matchLabels:
-      app: #APP#
+      app: scheduler
   template:
     metadata:
       labels:
-        app: #APP#
+        app: scheduler
     spec:
       containers:
-      - name: #APP#
-        image: ghcr.io/evebot-tools/#APP#
+      - name: scheduler
+        image: ghcr.io/evebot-tools/scheduler
         # resources:
         #   limits:
         #     memory: "128Mi"

@@ -8,7 +8,7 @@ RUN go mod download
 
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux go build -a -ldflags="-s -w" -o #APP# ./cmd
+RUN CGO_ENABLED=0 GOOS=linux go build -a -ldflags="-s -w" -o scheduler ./cmd
 
 FROM gcr.io/distroless/static:nonroot as app
 
@@ -16,6 +16,6 @@ LABEL org.opencontainers.image.source="https://github.com/OWNER/REPO"
 
 USER nonroot:nonroot
 
-COPY --from=builder --chown=nonroot:nonroot /app/#APP# /#APP#
+COPY --from=builder --chown=nonroot:nonroot /app/scheduler /scheduler
 
-ENTRYPOINT ["/#APP#"]
+ENTRYPOINT ["/scheduler"]

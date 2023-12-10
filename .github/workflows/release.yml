@@ -17,5 +17,5 @@ jobs:
       - uses: google-github-actions/release-please-action@v4
         with:
           release-type: go
-          package-name: api
+          package-name: scheduler
           token: ${{ secrets.RUNNER_TOKEN }}
