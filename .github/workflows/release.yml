@@ -1,0 +1,21 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: google-github-actions/release-please-action@v4
+        with:
+          release-type: go
+          package-name: api
+          token: ${{ secrets.RUNNER_TOKEN }}

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: #APP#
+spec:
+  selector:
+    matchLabels:
+      app: #APP#
+  template:
+    metadata:
+      labels:
+        app: #APP#
+    spec:
+      containers:
+      - name: #APP#
+        image: ghcr.io/evebot-tools/#APP#
+        # resources:
+        #   limits:
+        #     memory: "128Mi"
+        #     cpu: "500m"
+        # ports:
+        # - containerPort: 3000
+        #   protocol: TCP
+        #   name: http
+        env:
+        - name: PORT
+          value: "3000"
+        - name: ENVIRONMENT
+          valueFrom:
+            secretKeyRef:
+              key: ENVIRONMENT
+              name: evetools-secrets
+        - name: SENTRY_DSN
+          valueFrom:
+            secretKeyRef:
+              key: SENTRY_APPNAME
+              name: evetools-secrets
